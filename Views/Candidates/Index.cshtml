@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Lab3MidtermReview.Models.Candidate>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CandidateFirst)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CandidateLast)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Candidatenum)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CandidateFirst)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CandidateLast)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Candidatenum)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CandidateId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CandidateId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CandidateId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
